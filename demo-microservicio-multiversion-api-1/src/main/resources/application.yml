@@ -1,0 +1,35 @@
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/ 
+  instance:
+    status-page-url-path: ${management.context-path}/info 
+    hostname: ${hostName}
+    health-check-url-path: ${managemnet.context-path}/health
+    prefer-ip-address: true
+    metadata-map:
+      instanceId: ${spring.application.name}:${server.port} 
+      
+---
+
+spring:
+  profiles: v1
+
+eureka:
+  instance:
+    metadata-map:
+      versions: v1
+     
+---
+
+spring:
+  profiles: v1v2
+  
+eureka:
+  instance:
+    metadata-map:
+      versions: v1,v2  
+
+---
