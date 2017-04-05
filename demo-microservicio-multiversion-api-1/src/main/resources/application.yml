@@ -6,11 +6,11 @@ eureka:
       defaultZone: http://localhost:1111/eureka/ 
   instance:
     status-page-url-path: ${management.context-path}/info 
-    hostname: ${hostName}
     health-check-url-path: ${managemnet.context-path}/health
     prefer-ip-address: true
     metadata-map:
       instanceId: ${spring.application.name}:${server.port} 
+    hostname: ${hostName}
       
 ---
 
@@ -32,4 +32,4 @@ eureka:
     metadata-map:
       versions: v1,v2  
 
----
+      
