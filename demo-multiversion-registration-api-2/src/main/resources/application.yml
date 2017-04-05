@@ -1,0 +1,24 @@
+eureka:
+   client:
+     registerWithEureka: false
+     fetchRegistry: true
+     serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+ 
+demo-multiversion-registration-api1-v1:
+   ribbon:
+     # Eureka vipAddress of the target service
+     DeploymentContextBasedVipAddresses: demo-multiversion-registration-api-1
+     NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
+     # Interval to refresh the server list from the source (ms)
+     ServerListRefreshInterval: 30000
+ 
+demo-multiversion-registration-api1-v2:
+   ribbon:
+     # Eureka vipAddress of the target service
+     DeploymentContextBasedVipAddresses: demo-multiversion-registration-api-1
+     NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
+     # Interval to refresh the server list from the source (ms)
+     ServerListRefreshInterval: 30000
+
+
