@@ -1,9 +1,30 @@
+server:
+  port: ${appPort:8700}
+
+# http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints
+endpoints:
+  enabled: false
+  info:
+    enabled: true
+  health:
+    enabled: true
+  metrics:
+    enabled: true
+
+management:
+  security:
+    enabled: false
+
 eureka:
-   client:
-     registerWithEureka: false
-     fetchRegistry: true
-     serviceUrl:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
       defaultZone: http://localhost:1111/eureka/
+  instance:
+    prefer-ip-address: true
+    metadata-map:
+      instanceId: ${spring.application.name}:${server.port}     
  
 demo-multiversion-registration-api1-v1:
    ribbon:
