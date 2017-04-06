@@ -42,4 +42,16 @@ demo-multiversion-registration-api1-v2:
      # Interval to refresh the server list from the source (ms)
      ServerListRefreshInterval: 30000
 
+#Ejemplo de implementación de IPing.
+services-v1:
+   ribbon:
+     ServerListRefreshInterval: 100
+     DeploymentContextBasedVipAddresses: demo-multiversion-registration-api-1
+     NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
+#     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RetryRule
 
+demo-multiversion-registration-api-1:
+   ribbon:
+     ServerListRefreshInterval: 1500
+#     DeploymentContextBasedVipAddresses: demo-multiversion-registration-api-1
+#     NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList

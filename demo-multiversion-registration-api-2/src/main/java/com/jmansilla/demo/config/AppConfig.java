@@ -11,7 +11,9 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 @RibbonClients(value = {
 		@RibbonClient(name = "demo-multiversion-registration-api1-v1", configuration = RibbonConfigDemoApi1V1.class),
-		@RibbonClient(name = "demo-multiversion-registration-api1-v2", configuration = RibbonConfigDemoApi1V2.class)
+		@RibbonClient(name = "demo-multiversion-registration-api1-v2", configuration = RibbonConfigDemoApi1V2.class),
+		@RibbonClient(name = "services-v1", configuration = RibbonConfigDemoApi1Ping.class)
+		//@RibbonClient(name = "demo-multiversion-registration-api-1", configuration = RibbonConfigDemoApi1Ping.class)
 })
 public class AppConfig {
 	
