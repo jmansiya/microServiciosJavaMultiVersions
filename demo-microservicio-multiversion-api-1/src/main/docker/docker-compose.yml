@@ -1,0 +1,15 @@
+microservice1:
+  image: 'josemansilla/demo-microservicio-multiversion-api-1'
+  expose:
+    - "8089"
+microservice2:
+  image: 'josemansilla/demo-microservicio-multiversion-api-1'
+  expose:
+    - "8089"
+loadbalancer:
+  image: 'dockercloud/haproxy:latest'
+  links:
+    - microservice1
+    - microservice2
+  ports:
+    - '80:80'
