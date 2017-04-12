@@ -1,0 +1,14 @@
+version: '2'
+services:
+  microservice:
+    image: 'josemansilla/demo-microservicio-multiversion-api-1:latest'
+    expose:
+      - "8089"
+  loadbalancer:
+    image: 'dockercloud/haproxy:latest'
+    links:
+      - microservice
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - '80:80'
