@@ -1,9 +1,15 @@
 version: '2'
 services:
+  eurekaservice:
+    image: 'josemansilla/microservice_registration:latest'
+    ports:
+      - "1111:1111"
   microservice:
     image: 'josemansilla/demo-microservicio-multiversion-api-1:latest'
     expose:
       - "8089"
+    links:
+      - eurekaservice:eureka-server-docker
   loadbalancer:
     image: 'dockercloud/haproxy:latest'
     links:
